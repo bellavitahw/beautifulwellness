@@ -133,11 +133,6 @@
             gap: 0.5rem;
         }
 
-        /* .nav-logo::before {
-            content: 'c:\Users\sneha\Downloads\Screenshot 2025-09-18 180413.ico';
-            font-size: 1.8rem;
-        } */
-
         .nav-logo::before {
     content: '';
     width: 24px;
@@ -375,6 +370,7 @@
             width: 350px;
             flex-shrink: 0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .testimonial:hover {
@@ -397,16 +393,42 @@
             line-height: 1.6;
             margin-bottom: 1rem;
             padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-text.collapsed {
             display: -webkit-box;
             -webkit-line-clamp: 8;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
+        .testimonial-text.expanded {
+            display: block;
+            max-height: none;
+        }
+
         .testimonial-author {
             text-align: right;
             font-weight: bold;
             color: #8B4513;
+        }
+
+        .expand-toggle {
+            display: block;
+            text-align: center;
+            color: #8B4513;
+            font-weight: 500;
+            margin: 1rem 0 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .expand-toggle:hover {
+            color: #5d2f0b;
+            text-decoration: underline;
         }
 
         /* Navigation dots */
@@ -548,6 +570,20 @@
             padding: 2rem 0;
         }
 
+        .service-link {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: #5d2f0b;
+            text-decoration: underline;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -620,19 +656,6 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        .service-link {
-            color: #8B4513;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 1rem;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .service-link:hover {
-            color: #5d2f0b;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -765,73 +788,57 @@
                 
                 <div class="testimonials-scroll-wrapper" id="testimonialsScroll">
                     <div class="testimonials-grid">
-                        <div class="testimonial">
-                            <p class="testimonial-text">Erin was instrumental in guiding my oncology care. I was newly diagnosed with cancer and unsure of what to do. I was given very little information from my local care team. Erin was very informative and educated me on what to expect, second opinions at academic facilities for potential research. Erin did an extensive chemotherapy teaching with me on the medications I would be receiving. I continued following up with Erin in regards to side effects I would experience in between treatments as well as the day to day life changes affecting my career and family. Extremely grateful to have the opportunity to work with Erin in my cancer journey.</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">Erin was instrumental in guiding my oncology care. I was newly diagnosed with cancer and unsure of what to do. I was given very little information from my local care team. Erin was very informative and educated me on what to expect, second opinions at academic facilities for potential research. Erin did an extensive chemotherapy teaching with me on the medications I would be receiving. I continued following up with Erin in regards to side effects I would experience in between treatments as well as the day to day life changes affecting my career and family. Extremely grateful to have the opportunity to work with Erin in my cancer journey.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">DC - Texas</div>
                         </div>
                         
-                        <div class="testimonial">
-                            <p class="testimonial-text">Before I started working with Erin, I was scattered and looking for ways to improve my overall health as a full-time working mom with toddlers and a house to run. Erin encouraged me to find my "why" and helped me formulate a plan to get things on track. The resources she provided were so helpful and have improved my life in many ways. I appreciated her kind and upbeat tone during our coaching sessions and she always was so open and accepting. From our time together, I got involved in a fitness group, dialed in my nutrition and started a fitness regimen that I didn't realize I had the time or energy for. I have worked to reshape my mindset and did it with the help of Erin! I would recommend Erin as a coach. She meets you where you are on your journey and helps you to see the power you have in a light and positive way. Thank you</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">Before I started working with Erin, I was scattered and looking for ways to improve my overall health as a full-time working mom with toddlers and a house to run. Erin encouraged me to find my "why" and helped me formulate a plan to get things on track. The resources she provided were so helpful and have improved my life in many ways. I appreciated her kind and upbeat tone during our coaching sessions and she always was so open and accepting. From our time together, I got involved in a fitness group, dialed in my nutrition and started a fitness regimen that I didn't realize I had the time or energy for. I have worked to reshape my mindset and did it with the help of Erin! I would recommend Erin as a coach. She meets you where you are on your journey and helps you to see the power you have in a light and positive way. Thank you</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">VC - California</div>
                         </div>
                         
-                        <div class="testimonial">
-                            <p class="testimonial-text">I worked with Erin around the subject of continued weight loss. I had previously lost 60 pounds. I had done pretty well at maintaining the weight loss, but 8 pounds had creeped back on in the last 6 months. I didn't want this to happen. Together we set realistic goals. She worked with me on dietary goals, recipe sources, activity goals and mindfulness practices during our sessions and in between sessions. She was so encouraging at looking at the big picture. She helped me to see that not all successes are all about the number on the scale. I appreciated her kindness, encouragement and knowledge. I enjoyed working with her and her optimism. Thanks, Erin for your coaching.</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">I worked with Erin around the subject of continued weight loss. I had previously lost 60 pounds. I had done pretty well at maintaining the weight loss, but 8 pounds had creeped back on in the last 6 months. I didn't want this to happen. Together we set realistic goals. She worked with me on dietary goals, recipe sources, activity goals and mindfulness practices during our sessions and in between sessions. She was so encouraging at looking at the big picture. She helped me to see that not all successes are all about the number on the scale. I appreciated her kindness, encouragement and knowledge. I enjoyed working with her and her optimism. Thanks, Erin for your coaching.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">DH - Iowa</div>
                         </div>
                         
-                        <div class="testimonial">
-                            <p class="testimonial-text">As a busy practicing physician, I help a great number of people every day, physically, mentally and emotionally. So, when I signed on to Erin's life coaching sessions, I was somewhat unsure of the experience and benefit. I am incredibly grateful for the chance. Her mindfulness exercises were my favorite- she is naturally skilled and talented in decompressing, relaxing and then focusing on my own mental, emotional and physical health.</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">As a busy practicing physician, I help a great number of people every day, physically, mentally and emotionally. So, when I signed on to Erin's life coaching sessions, I was somewhat unsure of the experience and benefit. I am incredibly grateful for the chance. Her mindfulness exercises were my favorite- she is naturally skilled and talented in decompressing, relaxing and then focusing on my own mental, emotional and physical health.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">HS - Texas</div>
                         </div>
 
-                        <div class="testimonial">
-                            <p class="testimonial-text">My sessions with Erin have been instrumental, rewarding and invaluable for my wellbeing. Erin was able
-                                to help me take time to stop, relax, and focus on my needs and current life challenges. Without her,
-                                everything felt so overwhelming and paralyzing. I did not know where to start or how to handle my
-                                emotions.
-                                As we met, her ability to provide a safe, calm space allowed me to feel comfortable and supported. She is
-                                always actively listening and providing the time for me to work through my emotions and thoughts. She
-                                was able to guide me through steps to focus on and take action to move forward in a positive direction.
-                                Her guidance, patience, understanding and graceful communication helped me see things clearly. Now, I
-                                can focus on three things I can control and hold myself accountable to taking action steps. The huge
-                                concerns feel manageable, and I no longer feel paralyzed. I know our sessions have helped me continue
-                                to provide self-care, accountability, positive focus, and most importantly a life balance. Erin has a gift that
-                                goes beyond a learned skill set. Merging her knowledge, education, and unique abilities will make her an
-                                extraordinary Health coach. She already has done this with me. I have a new mindset, motivation,
-                                direction, and outlook on my life.
-                                I am so grateful for our time together and the results!!</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">My sessions with Erin have been instrumental, rewarding and invaluable for my wellbeing. Erin was able to help me take time to stop, relax, and focus on my needs and current life challenges. Without her, everything felt so overwhelming and paralyzing. I did not know where to start or how to handle my emotions. As we met, her ability to provide a safe, calm space allowed me to feel comfortable and supported. She is always actively listening and providing the time for me to work through my emotions and thoughts. She was able to guide me through steps to focus on and take action to move forward in a positive direction. Her guidance, patience, understanding and graceful communication helped me see things clearly. Now, I can focus on three things I can control and hold myself accountable to taking action steps. The huge concerns feel manageable, and I no longer feel paralyzed. I know our sessions have helped me continue to provide self-care, accountability, positive focus, and most importantly a life balance. Erin has a gift that goes beyond a learned skill set. Merging her knowledge, education, and unique abilities will make her an extraordinary Health coach. She already has done this with me. I have a new mindset, motivation, direction, and outlook on my life. I am so grateful for our time together and the results!!</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">HH - Texas</div>
                         </div>
                         
-                        <div class="testimonial">
-                            <p class="testimonial-text">I have partnered with Erin to help me with several areas in my day-to-day life. Our first session was so
-                                inspiring.I felt like I could overcome my procrastination issues. After our visit I had the motivation to
-                                accomplish several small tasks that same day. This gave me confidence, something that I had tucked
-                                away, and boosted my ego. I cannot wait to continue this journey with Erin. I did not think a Life Coach
-                                could help me, but I am so glad I gave it a chance."</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">I have partnered with Erin to help me with several areas in my day-to-day life. Our first session was so inspiring.I felt like I could overcome my procrastination issues. After our visit I had the motivation to accomplish several small tasks that same day. This gave me confidence, something that I had tucked away, and boosted my ego. I cannot wait to continue this journey with Erin. I did not think a Life Coach could help me, but I am so glad I gave it a chance.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">TJ - Texas</div>
                         </div>
                         
-                        <div class="testimonial">
-                            <p class="testimonial-text">It was lovely to work with Erin, she had her own created mindfulness practice and she was so gracious to
-                                share it. Her delivery was truly impactful and effective. She was generous to share her resources and was
-                                very open and encouraging. I had a meaningful session with Erin and I appreciate all the resources and
-                                practices that she shared with me. Thank you Erin and more power to you.</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">It was lovely to work with Erin, she had her own created mindfulness practice and she was so gracious to share it. Her delivery was truly impactful and effective. She was generous to share her resources and was very open and encouraging. I had a meaningful session with Erin and I appreciate all the resources and practices that she shared with me. Thank you Erin and more power to you.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">RR - California</div>
                         </div>
 
-                        <div class="testimonial">
-                            <p class="testimonial-text">This was an exciting adventure to work with a nurse coach! My challenge was
-                                balancing weight loss and management and I was able to get off to a successful start on
-                                my journey. Erin was very motivating and encouraging me to think outside the box and
-                                eliminate any self-doubt I tried to entertain. I will definitely recommend my friends and
-                                family to Erin!</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">This was an exciting adventure to work with a nurse coach! My challenge was balancing weight loss and management and I was able to get off to a successful start on my journey. Erin was very motivating and encouraging me to think outside the box and eliminate any self-doubt I tried to entertain. I will definitely recommend my friends and family to Erin!</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">AI - Texas</div>
                         </div>
 
-                        <div class="testimonial">
-                            <p class="testimonial-text">I cannot fully express how grateful I am for Erin and the role she played in my cancer journey. From the very beginning, she was a steady source of guidance, compassion, and strength. Erin helped point me in the right direction for treatment when I felt overwhelmed and unsure, and she empowered me to ask the right questions—ones I didn't even know I should be asking. Her insight and support made all the difference during one of the most difficult times in my life. I truly don't know where I'd be without her.</p>
+                        <div class="testimonial" onclick="toggleTestimonial(this)">
+                            <p class="testimonial-text collapsed">I cannot fully express how grateful I am for Erin and the role she played in my cancer journey. From the very beginning, she was a steady source of guidance, compassion, and strength. Erin helped point me in the right direction for treatment when I felt overwhelmed and unsure, and she empowered me to ask the right questions—ones I didn't even know I should be asking. Her insight and support made all the difference during one of the most difficult times in my life. I truly don't know where I'd be without her.</p>
+                            <span class="expand-toggle">Click to read more</span>
                             <div class="testimonial-author">JC - Texas</div>
                         </div>
                         
@@ -878,6 +885,22 @@
     </footer>
 
     <script>
+        // Testimonial expand/collapse functionality
+        function toggleTestimonial(testimonialElement) {
+            const textElement = testimonialElement.querySelector('.testimonial-text');
+            const toggleElement = testimonialElement.querySelector('.expand-toggle');
+            
+            if (textElement.classList.contains('collapsed')) {
+                textElement.classList.remove('collapsed');
+                textElement.classList.add('expanded');
+                toggleElement.textContent = 'Click to show less';
+            } else {
+                textElement.classList.remove('expanded');
+                textElement.classList.add('collapsed');
+                toggleElement.textContent = 'Click to read more';
+            }
+        }
+
         // Testimonials scroll functionality
         function scrollTestimonials(direction) {
             const container = document.getElementById('testimonialsScroll');
